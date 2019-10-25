@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Appクラスがコンポネントを継承して作成されている　クラスコンポーネント
 // class App extends Component {
@@ -16,7 +17,7 @@ const App = () => {
   const profiles = [
     { name: "taro", age: 10 },
     { name: "hanako", age: 5 },
-    { name: "Noname"},
+    { name: "noname", age: 3},
   ]
   return (
     <div>
@@ -32,8 +33,10 @@ const App = () => {
 const User = (props) => {
   return <div>Hi , I am {props.name}! and {props.age} years</div>
 }
-User.defaultProps = {
-  age: 1
+
+User.propTypes = {
+  name: PropTypes.string,
+  age: PropTypes.number.isRequired
 }
 
 export default App;
